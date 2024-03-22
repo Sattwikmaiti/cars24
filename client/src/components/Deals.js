@@ -31,7 +31,7 @@ const addDeal=async()=>{
   
   const id=localStorage.getItem('id')
   try{
-    const res=await axios.put('http://localhost:8000/api/car/add-deal',{carId:carId,dealerId:id,emi:emi,price:price})
+    const res=await axios.put('https://cars24.onrender.com/api/car/add-deal',{carId:carId,dealerId:id,emi:emi,price:price})
     console.log(res)
     alert("Successfully added the deal")
   }catch(err)
@@ -51,7 +51,7 @@ console.log("id is hrer",id)
   const fetchData = async () => {
 
 try{
-    const response=await axios.post(`http://localhost:8000/api/car/getdeals`,
+    const response=await axios.post(`https://cars24.onrender.com/api/car/getdeals`,
     
     );
     const result = response.data

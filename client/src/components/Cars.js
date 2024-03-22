@@ -30,7 +30,7 @@ const addDeal=async()=>{
   
 
   try{
-    const res=await axios.post('http://localhost:8000/api/car/addcar',{name:carId,model:dealerId})
+    const res=await axios.post('https://cars24.onrender.com/api/car/addcar',{name:carId,model:dealerId})
     console.log(res)
     alert("Successfully added the car")
   }catch(err)
@@ -50,7 +50,7 @@ console.log("id is hrer",id)
   const fetchData = async () => {
 
 try{
-    const response=await axios.post(`http://localhost:8000/api/car/cars`,
+    const response=await axios.post(`https://cars24.onrender.com/api/car/cars`,
     
     );
     const result = response.data

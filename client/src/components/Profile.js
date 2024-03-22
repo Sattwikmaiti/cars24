@@ -10,7 +10,7 @@ const Profile = () => {
   React.useEffect(() => {
     const fetchData = async () => {
     
-      const response=await axios.get(`http://localhost:8000/api/auth/profile/${localStorage.getItem('id')}`);
+      const response=await axios.get(`https://cars24.onrender.com/api/auth/profile/${localStorage.getItem('id')}`);
       const result = response.data
       console.log(result)
       setdata(result)

@@ -24,7 +24,7 @@ const sendVerificationEmail = async (email, verificationToken) => {
         from: "no-reply@gmail.com",
         to: email,
         subject: "Email Verification",
-        text: `Please click the following link to verify your email: http://localhost:8000/api/auth/verify/${verificationToken}`,
+        text: `Please click the following link to verify your email: https://cars24.onrender.com/api/auth/verify/${verificationToken}`,
     };
 
     // Send the email

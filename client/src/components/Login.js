@@ -10,7 +10,7 @@ const login=async()=>{
   console.log(email)
   console.log(password)
   try {
-     const res= await axios.post("http://localhost:8000/api/auth/login",{email:email,password:password });
+     const res= await axios.post("https://cars24.onrender.com/api/auth/login",{email:email,password:password });
     console.log(res)
     localStorage.setItem('token',res.data.accessToken)
     localStorage.setItem('id',res.data.id)

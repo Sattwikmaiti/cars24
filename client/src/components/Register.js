@@ -8,7 +8,7 @@ const Register = () => {
   const [password,setpassword]=useState("")
 const login=async()=>{
   try {
-    const res=await axios.post("http://localhost:8000/api/auth/register",{email,password });
+    const res=await axios.post("https://cars24.onrender.com/api/auth/register",{email,password });
     console.log(res.data)
     
     localStorage.setItem('id',res.data.id)

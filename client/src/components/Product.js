@@ -27,7 +27,7 @@ const Product = ({ data }) => {
     const id = localStorage.getItem('id');
     console.log(id);
     try {
-      const res = await axios.put('http://localhost:8000/api/car/transaction', { deal_id: dealId, buyer_id: id });
+      const res = await axios.put('https://cars24.onrender.com/api/car/transaction', { deal_id: dealId, buyer_id: id });
       console.log(res);
       alert("Successfully bought the car");
     } catch (err) {
