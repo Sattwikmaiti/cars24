@@ -9,15 +9,17 @@ const verifyUserRole = require('../middleware/authMiddleware');
 const isAdminWithVerifiedDetails = require('../middleware/adminMiddleware');
 
 
-router.get('/cars', async (req, res) => {
+router.post('/cars', async (req, res) => {
 
     const dealer=req.body.dealer
+    console.log("--",req.body)
     const customer=req.body.customer
     try {
 
         if(dealer)
           {
             const users=await user.findById(dealer)
+            console.log("cars")
             return res.status(200).json(users.cars_dealership)
           }
 
@@ -27,6 +29,22 @@ router.get('/cars', async (req, res) => {
           }
        
         const cars = await car.find();
+        
+        return res.json(cars);
+
+       
+    } catch (error) {
+        res.status(500).json({ message: error });
+    }
+
+});
+router.post('/getdeals', async (req, res) => {
+
+    
+    try {
+
+        
+        const cars = await deals.find();
         
         return res.json(cars);
 
@@ -103,6 +121,20 @@ console.log("2")
 
 
 router.post('/allcar',isAdminWithVerifiedDetails,async(req,res)=>{
+    const newCar = new car({
+        name: req.body.name,
+        model: req.body.model,
+       
+    });
+    try {
+        const savedCar = await newCar.save();
+        res.json(savedCar);
+    } catch (error) {
+        res.json({ message: error });
+    }
+})
+
+router.post('/addcar',async(req,res)=>{
     const newCar = new car({
         name: req.body.name,
         model: req.body.model,
